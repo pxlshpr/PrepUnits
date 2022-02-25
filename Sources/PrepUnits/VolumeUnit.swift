@@ -1,7 +1,6 @@
 import SwiftSugar
 
 public enum VolumeUnit: Int16, CaseIterable {
-
     case gallon = 1
     case quart
     case pint
@@ -10,8 +9,10 @@ public enum VolumeUnit: Int16, CaseIterable {
     case tablespoon
     case teaspoon
     case mL
-    
-    public var description: String {
+}
+
+public extension VolumeUnit {
+    var description: String {
         switch self {
         case .gallon:
             return "gallon"
@@ -32,11 +33,11 @@ public enum VolumeUnit: Int16, CaseIterable {
         }
     }
     
-    public func description(isPlural: Bool = false) -> String {
+    func description(isPlural: Bool = false) -> String {
         isPlural ? description.plural : description
     }
     
-    public var regex: String {
+    var regex: String {
         switch self {
         case .gallon:
             return #"^g"#
@@ -57,7 +58,7 @@ public enum VolumeUnit: Int16, CaseIterable {
         }
     }
     
-    public init?(string: String) {
+    init?(string: String) {
         for unit in Self.allCases {
             if string.matchesRegex(unit.regex) {
                 self = unit
@@ -67,7 +68,7 @@ public enum VolumeUnit: Int16, CaseIterable {
         return nil
     }
     
-    public static func volumeUserUnit(for rawValue: Int16) -> VolumeUserUnit? {
+    static func volumeUserUnit(for rawValue: Int16) -> VolumeUserUnit? {
         switch rawValue {
         case 1..<50:
             return VolumeGallonUserUnit(rawValue: rawValue)
