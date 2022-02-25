@@ -1,6 +1,6 @@
 import Foundation
 
-enum VolumePintUserUnit: Int16, VolumeUserUnit, CaseIterable {
+public enum VolumePintUserUnit: Int16, VolumeUserUnit, CaseIterable {
     case pintUSLiquid = 100
     case pintUSDry
     case pintImperial
@@ -12,7 +12,7 @@ enum VolumePintUserUnit: Int16, VolumeUserUnit, CaseIterable {
     case pintRoyal
     case pintCanada
 
-    var ml: Double {
+    public var ml: Double {
         switch self {
         case .pintUSLiquid:
             return 473.18
@@ -37,7 +37,7 @@ enum VolumePintUserUnit: Int16, VolumeUserUnit, CaseIterable {
         }
     }
     
-    var description: String {
+    public var description: String {
         switch self {
         case .pintUSLiquid:
             return "US Liquid"
@@ -61,6 +61,6 @@ enum VolumePintUserUnit: Int16, VolumeUserUnit, CaseIterable {
             return "Canada"
         }
     }
-    var regex: String { #"p"# }
-    var volumeUnit: VolumeUnit { .pint }
+    public var regex: String { #"p"# }
+    public var volumeUnit: VolumeUnit { .pint }
 }

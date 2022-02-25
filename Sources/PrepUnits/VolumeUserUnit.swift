@@ -1,6 +1,6 @@
 import Foundation
 
-protocol VolumeUserUnit {
+public protocol VolumeUserUnit {
     var rawValue: Int16 { get }
     var ml: Double { get }
     var description: String { get }

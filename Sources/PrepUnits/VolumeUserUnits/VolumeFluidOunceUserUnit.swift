@@ -1,11 +1,11 @@
 import Foundation
 
-enum VolumeFluidOunceUserUnit: Int16, VolumeUserUnit, CaseIterable {
+public enum VolumeFluidOunceUserUnit: Int16, VolumeUserUnit, CaseIterable {
     case fluidOunceUSNutritionLabeling = 200
     case fluidOunceUSCustomary
     case fluidOunceImperial
 
-    var ml: Double {
+    public var ml: Double {
         switch self {
         case .fluidOunceUSNutritionLabeling:
             return 30
@@ -16,7 +16,7 @@ enum VolumeFluidOunceUserUnit: Int16, VolumeUserUnit, CaseIterable {
         }
     }
     
-    var description: String {
+    public var description: String {
         switch self {
         case .fluidOunceUSNutritionLabeling:
             return "US Nutrition Labeling"
@@ -26,6 +26,6 @@ enum VolumeFluidOunceUserUnit: Int16, VolumeUserUnit, CaseIterable {
             return "Imperial"
         }
     }
-    var regex: String { #"^(fl|oz)"# }
-    var volumeUnit: VolumeUnit { .fluidOunce }
+    public var regex: String { #"^(fl|oz)"# }
+    public var volumeUnit: VolumeUnit { .fluidOunce }
 }

@@ -1,11 +1,11 @@
 import Foundation
 
-enum VolumeTablespoonUserUnit: Int16, VolumeUserUnit, CaseIterable {
+public enum VolumeTablespoonUserUnit: Int16, VolumeUserUnit, CaseIterable {
     case tablespoonMetric = 250
     case tablespoonUS
     case tablespoonAustralia
 
-    var ml: Double {
+    public var ml: Double {
         switch self {
         case .tablespoonMetric:
             return 15
@@ -16,7 +16,7 @@ enum VolumeTablespoonUserUnit: Int16, VolumeUserUnit, CaseIterable {
         }
     }
     
-    var description: String {
+    public var description: String {
         switch self {
         case .tablespoonMetric:
             return "Metric"
@@ -26,6 +26,6 @@ enum VolumeTablespoonUserUnit: Int16, VolumeUserUnit, CaseIterable {
             return "Australia"
         }
     }
-    var regex: String { #"^(tb|tab)"# }
-    var volumeUnit: VolumeUnit { .tablespoon }
+    public var regex: String { #"^(tb|tab)"# }
+    public var volumeUnit: VolumeUnit { .tablespoon }
 }

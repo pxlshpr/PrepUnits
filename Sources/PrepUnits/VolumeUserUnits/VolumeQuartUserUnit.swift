@@ -1,11 +1,11 @@
 import Foundation
 
-enum VolumeQuartUserUnit: Int16, VolumeUserUnit, CaseIterable {
+public enum VolumeQuartUserUnit: Int16, VolumeUserUnit, CaseIterable {
     case quartUSLiquid = 50
     case quartUSDry
     case quartImperial
 
-    var ml: Double {
+    public var ml: Double {
         switch self {
         case .quartUSLiquid:
             return 946.35
@@ -16,7 +16,7 @@ enum VolumeQuartUserUnit: Int16, VolumeUserUnit, CaseIterable {
         }
     }
     
-    var description: String {
+    public var description: String {
         switch self {
         case .quartUSLiquid:
             return "US Liquid"
@@ -26,6 +26,6 @@ enum VolumeQuartUserUnit: Int16, VolumeUserUnit, CaseIterable {
             return "Imperial"
         }
     }
-    var regex: String { #"q"# }
-    var volumeUnit: VolumeUnit { .quart }
+    public var regex: String { #"q"# }
+    public var volumeUnit: VolumeUnit { .quart }
 }

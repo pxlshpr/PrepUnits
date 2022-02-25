@@ -1,6 +1,6 @@
 import Foundation
 
-enum VolumeCupUserUnit: Int16, VolumeUserUnit, CaseIterable {
+public enum VolumeCupUserUnit: Int16, VolumeUserUnit, CaseIterable {
     case cupUSLegal = 150
     case cupUSCustomary
     case cupImperial
@@ -13,7 +13,7 @@ enum VolumeCupUserUnit: Int16, VolumeUserUnit, CaseIterable {
     case cupRussianGlassRegular
     case cupRussianGlassLarge
 
-    var ml: Double {
+    public var ml: Double {
         switch self {
         case .cupUSLegal:
             return 240
@@ -40,7 +40,7 @@ enum VolumeCupUserUnit: Int16, VolumeUserUnit, CaseIterable {
         }
     }
     
-    var description: String {
+    public var description: String {
         switch self {
         case .cupUSLegal:
             return "US Legal"
@@ -66,6 +66,6 @@ enum VolumeCupUserUnit: Int16, VolumeUserUnit, CaseIterable {
             return "Russian Glass (Large)"
         }
     }
-    var regex: String { #"c"# }
-    var volumeUnit: VolumeUnit { .cup }
+    public var regex: String { #"c"# }
+    public var volumeUnit: VolumeUnit { .cup }
 }
