@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftSugar",
+        "repositoryURL": "https://github.com/pxlshpr/SwiftSugar",
+        "state": {
+          "branch": null,
+          "revision": "752ba94bb26f6fbc0c51151780d5ae6048cf8060",
+          "version": "0.0.22"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
