@@ -33,6 +33,10 @@ public extension VolumeUnit {
         }
     }
     
+    func description(for value: Double) -> String {
+        description(isPlural: value > 1)
+    }
+
     func description(isPlural: Bool = false) -> String {
         isPlural ? description.plural : description
     }
