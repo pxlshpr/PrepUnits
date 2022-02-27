@@ -1,13 +1,14 @@
 import Foundation
 
-enum WeightUnit: Int16, CaseIterable {
-
+public enum WeightUnit: Int16, CaseIterable {
     case g = 1
     case kg
     case oz
     case lb
     case mg
-    
+}
+
+public extension WeightUnit {
     var regex: String {
         switch self {
         case .g:
