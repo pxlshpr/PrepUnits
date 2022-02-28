@@ -33,6 +33,27 @@ extension VolumeUnit: Unit {
         }
     }
     
+    public var shortDescription: String? {
+        switch self {
+        case .gallon:
+            return "gal"
+        case .quart:
+            return "qt."
+        case .pint:
+            return "pt"
+        case .cup:
+            return "c"
+        case .fluidOunce:
+            return "fl. oz."
+        case .tablespoon:
+            return "tbsp."
+        case .teaspoon:
+            return "tsp."
+        case .mL:
+            return "mL"
+        }
+    }
+    
     public var regex: String {
         switch self {
         case .gallon:
