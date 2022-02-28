@@ -29,15 +29,15 @@ extension WeightUnit: Unit {
     public var description: String {
         switch self {
         case .g:
-            return "gram"
+            return "Gram"
         case .kg:
-            return "kilogram"
+            return "Kilogram"
         case .oz:
-            return "ounce"
+            return "Ounce"
         case .lb:
-            return "pound"
+            return "Pound"
         case .mg:
-            return "milligram"
+            return "Milligram"
         }
     }
 }
