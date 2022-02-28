@@ -40,4 +40,19 @@ extension WeightUnit: Unit {
             return "Milligram"
         }
     }
+    
+    public var shortDescription: String? {
+        switch self {
+        case .g:
+            return "g"
+        case .kg:
+            return "kg"
+        case .oz:
+            return "oz"
+        case .lb:
+            return "lb"
+        case .mg:
+            return "mg"
+        }
+    }
 }
