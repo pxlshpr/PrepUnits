@@ -7,9 +7,9 @@ public enum UnitType: Int16, CaseIterable {
     case size
 }
 
-public extension UnitType {
+extension UnitType: Unit {
     
-    var description: String {
+    public var description: String {
         switch self {
         case .weight:
             return "Weight"
@@ -21,7 +21,9 @@ public extension UnitType {
             return "Size"
         }
     }
-    
+}
+
+public extension UnitType {
     var isMeasurement: Bool {
         self == .weight || self == .volume
     }
