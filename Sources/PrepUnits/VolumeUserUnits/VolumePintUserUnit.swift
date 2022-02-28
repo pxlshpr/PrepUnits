@@ -1,6 +1,6 @@
 import Foundation
 
-public enum VolumePintUserUnit: Int16, VolumeUserUnit, CaseIterable {
+public enum VolumePintUserUnit: Int16, VolumeUserUnit, Unit, CaseIterable {
     case pintUSLiquid = 100
     case pintUSDry
     case pintImperial

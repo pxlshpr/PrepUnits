@@ -1,6 +1,6 @@
 import Foundation
 
-public enum VolumeQuartUserUnit: Int16, VolumeUserUnit, CaseIterable {
+public enum VolumeQuartUserUnit: Int16, VolumeUserUnit, Unit, CaseIterable {
     case quartUSLiquid = 50
     case quartUSDry
     case quartImperial
