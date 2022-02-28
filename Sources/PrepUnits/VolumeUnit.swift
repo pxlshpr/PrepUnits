@@ -11,8 +11,8 @@ public enum VolumeUnit: Int16, CaseIterable {
     case mL
 }
 
-public extension VolumeUnit {
-    var description: String {
+extension VolumeUnit: Unit {
+    public var description: String {
         switch self {
         case .gallon:
             return "gallon"
@@ -33,15 +33,7 @@ public extension VolumeUnit {
         }
     }
     
-    func description(for value: Double) -> String {
-        description(isPlural: value > 1)
-    }
-
-    func description(isPlural: Bool = false) -> String {
-        isPlural ? description.plural : description
-    }
-    
-    var regex: String {
+    public var regex: String {
         switch self {
         case .gallon:
             return #"^g"#
@@ -62,7 +54,7 @@ public extension VolumeUnit {
         }
     }
     
-    init?(string: String) {
+    public init?(string: String) {
         for unit in Self.allCases {
             if string.matchesRegex(unit.regex) {
                 self = unit
@@ -72,7 +64,7 @@ public extension VolumeUnit {
         return nil
     }
     
-    static func volumeUserUnit(for rawValue: Int16) -> VolumeUserUnit? {
+    public static func volumeUserUnit(for rawValue: Int16) -> VolumeUserUnit? {
         switch rawValue {
         case 1..<50:
             return VolumeGallonUserUnit(rawValue: rawValue)

@@ -24,3 +24,20 @@ public extension WeightUnit {
         }
     }
 }
+
+extension WeightUnit: Unit {
+    public var description: String {
+        switch self {
+        case .g:
+            return "gram"
+        case .kg:
+            return "kilogram"
+        case .oz:
+            return "ounce"
+        case .lb:
+            return "pound"
+        case .mg:
+            return "milligram"
+        }
+    }
+}

@@ -1,12 +1,12 @@
 import Foundation
 
-public enum EnergyUnit: String, CaseIterable {
-    case kcal
+public enum EnergyUnit: Int16, CaseIterable {
+    case kcal = 1
     case kJ
 }
 
-public extension EnergyUnit {
-    var description: String {
+extension EnergyUnit: Unit {
+    public var description: String {
         switch self {
         case .kcal:
             return "kcal"
@@ -15,7 +15,7 @@ public extension EnergyUnit {
         }
     }
     
-    func title(isPlural: Bool) -> String {
+    public func title(isPlural: Bool) -> String {
         description
     }
 }
