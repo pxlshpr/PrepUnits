@@ -15,21 +15,21 @@ extension VolumeUnit: Unit {
     public var description: String {
         switch self {
         case .gallon:
-            return "gallon"
+            return "Gallon"
         case .quart:
-            return "quart"
+            return "Quart"
         case .pint:
-            return "pint"
+            return "Pint"
         case .cup:
-            return "cup"
+            return "Cup"
         case .fluidOunce:
-            return "fluid ounce"
+            return "Fluid Ounce"
         case .tablespoon:
-            return "tablespoon"
+            return "Tablespoon"
         case .teaspoon:
-            return "teaspoon"
+            return "Teaspoon"
         case .mL:
-            return "mL"
+            return "Millilitres"
         }
     }
     
