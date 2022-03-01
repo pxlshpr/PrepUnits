@@ -38,17 +38,17 @@ extension VolumeUnit: Unit {
         case .gallon:
             return "gal"
         case .quart:
-            return "qt."
+            return "qt"
         case .pint:
             return "pt"
         case .cup:
             return "cup"
         case .fluidOunce:
-            return "fl. oz."
+            return "fl oz"
         case .tablespoon:
-            return "tbsp."
+            return "tbsp"
         case .teaspoon:
-            return "tsp."
+            return "tsp"
         case .mL:
             return "mL"
         }
