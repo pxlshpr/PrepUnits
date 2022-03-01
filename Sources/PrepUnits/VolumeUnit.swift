@@ -42,7 +42,7 @@ extension VolumeUnit: Unit {
         case .pint:
             return "pt"
         case .cup:
-            return "c"
+            return "cup"
         case .fluidOunce:
             return "fl. oz."
         case .tablespoon:
