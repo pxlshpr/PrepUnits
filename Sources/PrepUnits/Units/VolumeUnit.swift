@@ -11,7 +11,7 @@ public enum VolumeUnit: Int16, CaseIterable {
     case mL
 }
 
-extension VolumeUnit: Unit {
+extension VolumeUnit: PrepUnit {
     public var description: String {
         switch self {
         case .gallon:
