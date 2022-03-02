@@ -6,6 +6,8 @@ public protocol Unit {
     func description(isPlural: Bool) -> String
     
     var shortDescription: String? { get }
+    func shortDescription(for value: Double) -> String?
+    func shortDescription(isPlural: Bool) -> String?
 }
 
 public extension Unit {
@@ -16,6 +18,15 @@ public extension Unit {
 
     func description(isPlural: Bool = false) -> String {
         isPlural ? description.plural : description
+    }
+
+    func shortDescription(for value: Double) -> String? {
+        shortDescription(isPlural: value > 1)
+    }
+
+    func shortDescription(isPlural: Bool = false) -> String? {
+        guard let shortDescription = shortDescription else { return nil }
+        return isPlural ? shortDescription.plural : shortDescription
     }
     
     var shortDescription: String? {
