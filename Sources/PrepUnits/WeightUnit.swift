@@ -41,7 +41,7 @@ extension WeightUnit: Unit {
         }
     }
     
-    public var shortDescription: String? {
+    public var shortDescription: String {
         switch self {
         case .g:
             return "g"

@@ -9,6 +9,15 @@ extension EnergyUnit: Unit {
     public var description: String {
         switch self {
         case .kcal:
+            return "Kilocalorie"
+        case .kJ:
+            return "Kilojule"
+        }
+    }
+    
+    public var shortDescription: String {
+        switch self {
+        case .kcal:
             return "kcal"
         case .kJ:
             return "kJ"

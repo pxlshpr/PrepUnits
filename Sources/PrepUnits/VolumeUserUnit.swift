@@ -6,3 +6,9 @@ public protocol VolumeUserUnit: Unit {
     var regex: String { get }
     var volumeUnit: VolumeUnit { get }
 }
+
+extension VolumeUserUnit {
+    public var shortDescription: String {
+        volumeUnit.shortDescription
+    }
+}

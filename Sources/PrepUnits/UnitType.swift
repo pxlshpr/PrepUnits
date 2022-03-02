@@ -21,6 +21,10 @@ extension UnitType: Unit {
             return "Size"
         }
     }
+    
+    public var shortDescription: String {
+        description
+    }
 }
 
 public extension UnitType {

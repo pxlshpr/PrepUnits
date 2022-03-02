@@ -33,7 +33,7 @@ extension VolumeUnit: Unit {
         }
     }
     
-    public var shortDescription: String? {
+    public var shortDescription: String {
         switch self {
         case .gallon:
             return "gal"
