@@ -5,7 +5,7 @@ public enum EnergyUnit: Int16, CaseIterable {
     case kJ
 }
 
-extension EnergyUnit: Unit {
+extension EnergyUnit: PrepUnit {
     public var description: String {
         switch self {
         case .kcal:

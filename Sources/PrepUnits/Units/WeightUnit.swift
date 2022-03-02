@@ -25,7 +25,7 @@ public extension WeightUnit {
     }
 }
 
-extension WeightUnit: Unit {
+extension WeightUnit: PrepUnit {
     public var description: String {
         switch self {
         case .g:

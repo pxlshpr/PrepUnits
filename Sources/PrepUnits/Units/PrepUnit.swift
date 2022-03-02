@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol Unit {
+public protocol PrepUnit {
     var description: String { get }
     func description(for value: Double) -> String
     func description(isPlural: Bool) -> String
@@ -12,7 +12,7 @@ public protocol Unit {
     func shortDescription(with amount: Double) -> String
 }
 
-public extension Unit {
+public extension PrepUnit {
     
     func description(for value: Double) -> String {
         description(isPlural: value > 1)

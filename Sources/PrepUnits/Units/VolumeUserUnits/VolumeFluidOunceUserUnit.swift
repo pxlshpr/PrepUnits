@@ -1,6 +1,6 @@
 import Foundation
 
-public enum VolumeFluidOunceUserUnit: Int16, VolumeUserUnit, Unit, CaseIterable {
+public enum VolumeFluidOunceUserUnit: Int16, VolumeUserUnit, PrepUnit, CaseIterable {
     case fluidOunceUSNutritionLabeling = 200
     case fluidOunceUSCustomary
     case fluidOunceImperial
