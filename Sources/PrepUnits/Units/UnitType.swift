@@ -7,7 +7,7 @@ public enum UnitType: Int16, CaseIterable {
     case size
 }
 
-extension UnitType: PrepUnit {
+extension UnitType: Unit {
     
     public var description: String {
         switch self {

@@ -1,6 +1,6 @@
 import Foundation
 
-public enum VolumeTablespoonUserUnit: Int16, VolumeUserUnit, PrepUnit, CaseIterable {
+public enum VolumeTablespoonUserUnit: Int16, VolumeUserUnit, Unit, CaseIterable {
     case tablespoonMetric = 250
     case tablespoonUS
     case tablespoonAustralia
