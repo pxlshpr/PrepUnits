@@ -111,7 +111,7 @@ extension VolumeUnit: PrepUnit {
         case 350:
             return VolumeMilliliterUserUnit.ml
         case 351:
-            return VolumeLiterUserUnit.l
+            return VolumeLiterUserUnit.liter
         default:
             return nil
         }

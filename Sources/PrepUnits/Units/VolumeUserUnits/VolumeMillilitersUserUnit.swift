@@ -20,7 +20,7 @@ public enum VolumeLiterUserUnit: Int16, VolumeUserUnit, PrepUnit, CaseIterable {
 
     public var ml: Double {
         switch self {
-        case .l:
+        case .liter:
             return 1000
         }
     }
