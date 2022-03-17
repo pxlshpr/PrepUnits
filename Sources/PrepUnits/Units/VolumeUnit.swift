@@ -9,6 +9,7 @@ public enum VolumeUnit: Int16, CaseIterable {
     case tablespoon
     case teaspoon
     case mL
+    case liter
 }
 
 extension VolumeUnit: PrepUnit {
@@ -30,6 +31,8 @@ extension VolumeUnit: PrepUnit {
             return "Teaspoon"
         case .mL:
             return "Millilitre"
+        case .liter:
+            return "Litre"
         }
     }
     
@@ -51,6 +54,8 @@ extension VolumeUnit: PrepUnit {
             return "tsp"
         case .mL:
             return "mL"
+        case .liter:
+            return "L"
         }
     }
     
@@ -72,6 +77,8 @@ extension VolumeUnit: PrepUnit {
             return #"^(ts|tea)"#
         case .mL:
             return #"^(ml|mil)"#
+        case .liter:
+            return #"^l"#
         }
     }
     
@@ -103,6 +110,8 @@ extension VolumeUnit: PrepUnit {
             return VolumeTeaspoonUserUnit(rawValue: rawValue)
         case 350:
             return VolumeMilliliterUserUnit.ml
+        case 351:
+            return VolumeLiterUserUnit.l
         default:
             return nil
         }
