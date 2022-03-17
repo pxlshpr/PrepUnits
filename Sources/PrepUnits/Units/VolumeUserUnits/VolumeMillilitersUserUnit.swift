@@ -16,7 +16,7 @@ public enum VolumeMilliliterUserUnit: Int16, VolumeUserUnit, PrepUnit, CaseItera
 }
 
 public enum VolumeLiterUserUnit: Int16, VolumeUserUnit, PrepUnit, CaseIterable {
-    case l = 351
+    case liter = 351
 
     public var ml: Double {
         switch self {
