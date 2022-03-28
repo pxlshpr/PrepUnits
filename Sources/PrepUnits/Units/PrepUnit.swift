@@ -31,7 +31,7 @@ public extension PrepUnit {
     }
     
     func shortDescription(with amount: Double) -> String {
-        amount.cleanedQuantity(unit: shortDescription(for: amount), amount: amount, lowercased: true)
+        amount.cleanedQuantity(unit: shortDescription(for: amount), amount: amount, lowercased: false)
     }
     
     func description(with amount: Double) -> String {
