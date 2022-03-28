@@ -39,7 +39,6 @@ public extension String {
         } else {
             string = self
         }
-        
         return lowercased ? string.lowercased() : string
     }
 }
