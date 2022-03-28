@@ -40,6 +40,6 @@ public extension String {
             string = self
         }
         
-        return lowercased ? string.lowercased() : string.capitalized
+        return lowercased ? string.lowercased() : string
     }
 }
