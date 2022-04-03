@@ -9,6 +9,21 @@ public enum WeightUnit: Int16, CaseIterable {
 }
 
 public extension WeightUnit {
+    var g: Double {
+        switch self {
+        case .g:
+            return 1
+        case .kg:
+            return 1000
+        case .oz:
+            return 28.349523
+        case .lb:
+            return 453.59237
+        case .mg:
+            return 0.001
+        }
+    }
+    
     var regex: String {
         switch self {
         case .g:
