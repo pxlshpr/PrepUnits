@@ -3,6 +3,7 @@ import Foundation
 public enum NutrientUnit: Int16, CaseIterable {
     case g = 1
     case mg
+    case mgAT /// alpha-tocopherol
     case mgNE
     case mcg = 50
     case mcgDFE
@@ -17,6 +18,8 @@ extension NutrientUnit: PrepUnit {
             return "grams"
         case .mg:
             return "milligrams"
+        case .mgAT:
+            return "milligrams of alpha-tocopherol"
         case .mgNE:
             return "milligrams of niacin equivalents"
         case .mcg:
@@ -35,6 +38,8 @@ extension NutrientUnit: PrepUnit {
         case .g:
             return "g"
         case .mg:
+            return "mg"
+        case .mgAT:
             return "mg"
         case .mgNE:
             return "mg NE"

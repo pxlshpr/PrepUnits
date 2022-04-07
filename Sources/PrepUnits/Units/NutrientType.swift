@@ -143,4 +143,93 @@ extension NutrientType {
             return "Ethanol"
         }
     }
+    
+    /// Taken from: https://www.fda.gov/media/135301/download
+    public var dailyValue: (Double, NutrientUnit)? {
+        switch self {
+        case .saturatedFat:
+            return (20, .g)
+        case .monounsaturatedFat:
+            return nil
+        case .polyunsaturatedFat:
+            return nil
+        case .transFat:
+            return nil
+        case .cholesterol:
+            return (300, .mg)
+        case .dietaryFiber:
+            return (28, .g)
+        case .solubleFiber:
+            return nil
+        case .insolubleFiber:
+            return nil
+        case .sugars:
+            return nil
+        case .addedSugars:
+            return (50, .g)
+        case .sugarAlcohols:
+            return nil
+        case .calcium:
+            return (1300, .mg)
+        case .chloride:
+            return (2300, .mg)
+        case .chromium:
+            return (35, .mcg)
+        case .copper:
+            return (0.9, .mg)
+        case .iodine:
+            return (150, .mcg)
+        case .iron:
+            return (18, .mg)
+        case .magnesium:
+            return (420, .mg)
+        case .manganese:
+            return (2.3, .mg)
+        case .molybdenum:
+            return (45, .mcg)
+        case .phosphorus:
+            return (1250, .mg)
+        case .potassium:
+            return (4700, .mg)
+        case .selenium:
+            return (55, .mcg)
+        case .sodium:
+            return (2300, .mg)
+        case .zinc:
+            return (11, .mg)
+        case .vitaminA:
+            return (900, .mcg)
+        case .vitaminB6:
+            return (1.7, .mg)
+        case .vitaminB12:
+            return (2.4, .mcg)
+        case .vitaminC:
+            return (90, .mg)
+        case .vitaminD:
+            return (20, .mcg)
+        case .vitaminE:
+            return (15, .mgAT)
+        case .vitaminK:
+            return (120, .mcg)
+        case .biotin:
+            return (30, .mcg)
+        case .choline:
+            return (550, .mg)
+        case .folate:
+            return (400, .mcgDFE)
+        case .niacin:
+            return (16, .mgNE)
+        case .pantothenicAcid:
+            return (5, .mg)
+        case .riboflavin:
+            return (1.3, .mg)
+        case .thiamin:
+            return (1.2, .mg)
+        case .caffeine:
+            /// Source: https://www.hsph.harvard.edu/nutritionsource/caffeine/
+            return (400, .mg)
+        case .ethanol:
+            return nil
+        }
+    }
 }
