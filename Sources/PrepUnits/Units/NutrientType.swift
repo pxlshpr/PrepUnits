@@ -232,4 +232,14 @@ extension NutrientType {
             return nil
         }
     }
+    
+    /**
+     Converts a % RDA value to an amount
+     */
+    public func convertRDApercentage(_ percentage: Double) -> (amount: Double, NutrientUnit)? {
+        guard let dailyValue = dailyValue else {
+            return nil
+        }
+        return ((dailyValue.0) * percentage / 100.0, dailyValue.1)
+    }
 }
