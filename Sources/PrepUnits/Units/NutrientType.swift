@@ -1,5 +1,14 @@
 import Foundation
 
+public enum NutrientTypeGroup {
+    case fats
+    case fibers
+    case sugars
+    case minerals
+    case vitamins
+    case misc
+}
+
 public enum NutrientType: Int16, CaseIterable {
     
     /// Fats
@@ -54,6 +63,112 @@ public enum NutrientType: Int16, CaseIterable {
     /// Misc
     case caffeine = 250
     case ethanol
+}
+
+extension NutrientType {
+    public var group: NutrientTypeGroup {
+        switch self {
+        case .saturatedFat, .monounsaturatedFat, .polyunsaturatedFat, .transFat, .cholesterol:
+            return .fats
+        case .dietaryFiber, .solubleFiber, .insolubleFiber:
+            return .fibers
+        case .sugars, .addedSugars, .sugarAlcohols:
+            return .sugars
+        case .calcium, .chloride, .chromium, .copper, .iodine, .iron, .magnesium, .manganese, .molybdenum, .phosphorus, .potassium, .selenium, .sodium, .zinc:
+            return .minerals
+        case .vitaminA, .vitaminB6, .vitaminB12, .vitaminC, .vitaminD, .vitaminE, .vitaminK, .biotin, .choline, .folate, .niacin, .pantothenicAcid, .riboflavin, .thiamin:
+            return .vitamins
+        case .caffeine, .ethanol:
+            return .misc
+        }
+    }
+    
+    public var sortPosition: Int {
+        switch self {
+        case .saturatedFat:
+            return 1
+        case .monounsaturatedFat:
+            return 2
+        case .polyunsaturatedFat:
+            return 3
+        case .transFat:
+            return 4
+        case .cholesterol:
+            return 5
+        case .dietaryFiber:
+            return 6
+        case .solubleFiber:
+            return 7
+        case .insolubleFiber:
+            return 8
+        case .sugars:
+            return 9
+        case .addedSugars:
+            return 10
+        case .sugarAlcohols:
+            return 11
+        case .calcium:
+            return 12
+        case .chloride:
+            return 13
+        case .chromium:
+            return 14
+        case .copper:
+            return 15
+        case .iodine:
+            return 16
+        case .iron:
+            return 17
+        case .magnesium:
+            return 18
+        case .manganese:
+            return 19
+        case .molybdenum:
+            return 20
+        case .phosphorus:
+            return 21
+        case .potassium:
+            return 22
+        case .selenium:
+            return 23
+        case .sodium:
+            return 24
+        case .zinc:
+            return 25
+        case .vitaminA:
+            return 26
+        case .vitaminB6:
+            return 27
+        case .vitaminB12:
+            return 28
+        case .vitaminC:
+            return 29
+        case .vitaminD:
+            return 30
+        case .vitaminE:
+            return 31
+        case .vitaminK:
+            return 32
+        case .biotin:
+            return 33
+        case .choline:
+            return 34
+        case .folate:
+            return 35
+        case .niacin:
+            return 36
+        case .pantothenicAcid:
+            return 37
+        case .riboflavin:
+            return 38
+        case .thiamin:
+            return 39
+        case .caffeine:
+            return 40
+        case .ethanol:
+            return 41
+        }
+    }
 }
 
 extension NutrientType {
