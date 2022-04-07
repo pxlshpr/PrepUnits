@@ -1,31 +1,5 @@
 import Foundation
 
-public enum NutrientTypeGroup: Int, CaseIterable {
-    case fats = 1
-    case fibers
-    case sugars
-    case minerals
-    case vitamins
-    case misc
-    
-    public var description: String {
-        switch self {
-        case .fats:
-            return "Fats"
-        case .fibers:
-            return "Fibers"
-        case .sugars:
-            return "Sugars"
-        case .minerals:
-            return "Minerals"
-        case .vitamins:
-            return "Vitamins"
-        case .misc:
-            return "Miscellaneous"
-        }
-    }
-}
-
 public enum NutrientType: Int16, CaseIterable {
     
     /// Fats
@@ -97,6 +71,27 @@ extension NutrientType {
             return .vitamins
         case .caffeine, .ethanol:
             return .misc
+        }
+    }
+    
+    public var units: [NutrientUnit] {
+        switch self {
+        case .cholesterol, .calcium, .chloride, .copper, .iron, .magnesium, .manganese, .phosphorus, .potassium, .sodium, .zinc, .vitaminC, .vitaminB6, .choline, .pantothenicAcid, .riboflavin, .thiamin, .caffeine:
+            return [.mg]
+        case .chromium, .iodine, .molybdenum, .selenium, .vitaminB12, .vitaminK, .biotin:
+            return [.mcg]
+        case .vitaminA:
+            return [.mcgRAE, .IU]
+        case .vitaminD:
+            return [.mcg, .IU]
+        case .vitaminE:
+            return [.mgAT, .IU]
+        case .folate:
+            return [.mcgDFE, .mcg]
+        case .niacin:
+            return [.mgNE, .mg]
+        default:
+            return [.g]
         }
     }
     
