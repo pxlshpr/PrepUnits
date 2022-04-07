@@ -1,12 +1,29 @@
 import Foundation
 
-public enum NutrientTypeGroup {
-    case fats
+public enum NutrientTypeGroup: Int, CaseIterable {
+    case fats = 1
     case fibers
     case sugars
     case minerals
     case vitamins
     case misc
+    
+    var description: String {
+        switch self {
+        case .fats:
+            return "Fats"
+        case .fibers:
+            return "Fibers"
+        case .sugars:
+            return "Sugars"
+        case .minerals:
+            return "Minerals"
+        case .vitamins:
+            return "Vitamins"
+        case .misc:
+            return "Miscellaneous"
+        }
+    }
 }
 
 public enum NutrientType: Int16, CaseIterable {
