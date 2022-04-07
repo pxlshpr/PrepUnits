@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Nutrient: Int16, CaseIterable {
+public enum NutrientType: Int16, CaseIterable {
     
     /// Fats
     case saturatedFat = 1
@@ -56,7 +56,7 @@ public enum Nutrient: Int16, CaseIterable {
     case ethanol
 }
 
-extension Nutrient {
+extension NutrientType {
     public var description: String {
         switch self {
         case .saturatedFat:
