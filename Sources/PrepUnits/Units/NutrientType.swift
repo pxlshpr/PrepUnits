@@ -325,7 +325,7 @@ extension NutrientType {
         case .zinc:
             return (11, .mg)
         case .vitaminA:
-            return (900, .mcg)
+            return (900, .mcgRAE)
         case .vitaminB6:
             return (1.7, .mg)
         case .vitaminB12:
