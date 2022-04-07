@@ -8,7 +8,7 @@ public enum NutrientTypeGroup: Int, CaseIterable {
     case vitamins
     case misc
     
-    var description: String {
+    public var description: String {
         switch self {
         case .fats:
             return "Fats"
