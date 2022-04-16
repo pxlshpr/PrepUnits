@@ -61,6 +61,18 @@ extension NutrientType {
         allCases.filter { $0.group == group}
     }
     
+    public static var vitamins: [NutrientType] {
+        types(inGroup: .vitamins)
+    }
+    
+    public static var minerals: [NutrientType] {
+        types(inGroup: .minerals)
+    }
+    
+    public static var misc: [NutrientType] {
+        types(inGroup: .misc)
+    }
+    
     public var group: NutrientTypeGroup {
         switch self {
         case .saturatedFat, .monounsaturatedFat, .polyunsaturatedFat, .transFat, .cholesterol:
