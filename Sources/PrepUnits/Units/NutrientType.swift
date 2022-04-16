@@ -57,6 +57,10 @@ public enum NutrientType: Int16, CaseIterable {
 }
 
 extension NutrientType {
+    public static func types(inGroup group: NutrientTypeGroup) -> [NutrientType] {
+        allCases.filter { $0.group == group}
+    }
+    
     public var group: NutrientTypeGroup {
         switch self {
         case .saturatedFat, .monounsaturatedFat, .polyunsaturatedFat, .transFat, .cholesterol:
