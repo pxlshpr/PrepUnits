@@ -4,6 +4,9 @@ public enum Macro: String, CaseIterable {
     case carb = "Carbohydrate"
     case fat = "Fat"
     case protein = "Protein"
+}
+
+public extension Macro {
     
     var multiplier: Double {
         switch self {
