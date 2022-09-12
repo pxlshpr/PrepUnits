@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "SwiftHaptics",
+        "repositoryURL": "https://github.com/pxlshpr/SwiftHaptics",
+        "state": {
+          "branch": null,
+          "revision": "6300a8681b551f3df1023266116ca9700dbd14f9",
+          "version": "0.1.0"
+        }
+      },
+      {
         "package": "SwiftSugar",
         "repositoryURL": "https://github.com/pxlshpr/SwiftSugar",
         "state": {
           "branch": null,
-          "revision": "2ed9f1d515f9f24f7c832883db49272b7ec623dd",
-          "version": "0.0.30"
+          "revision": "b7add1ec5deea79b13c735576c3b0c92839dc5a6",
+          "version": "0.0.54"
+        }
+      },
+      {
+        "package": "SwiftUISugar",
+        "repositoryURL": "https://github.com/pxlshpr/SwiftUISugar",
+        "state": {
+          "branch": null,
+          "revision": "e0222ce74a9b3b549e02076b2552af282300ae3e",
+          "version": "0.0.169"
         }
       }
     ]
