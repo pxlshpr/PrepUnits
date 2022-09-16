@@ -16,6 +16,23 @@ public extension Macro {
         }
     }
     
+    func textColor(for colorScheme: ColorScheme) -> Color {
+        switch self {
+        case .carb:
+            return colorScheme == .light
+            ? Color(hex: "CA7700")
+            : Color(hex: "FFCD34")
+        case .fat:
+            return colorScheme == .light
+            ? Color(hex: "B900FF")
+            : Color(hex: "E742FF")
+        case .protein:
+            return colorScheme == .light
+            ? Color(hex: "3D969A")
+            : Color(hex: "9AFBFF")
+        }
+    }
+    
     //TODO: Document these so we can use them easily
     var color: Color {
         Color(uiColor)
