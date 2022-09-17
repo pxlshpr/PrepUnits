@@ -28,3 +28,16 @@ extension EnergyUnit: PrepUnit {
         description
     }
 }
+
+public extension EnergyUnit {
+    /**
+     1 kcal = 4.184 kJ
+     */
+    static func convertToKilocalories(fromKilojules kJ: Double) -> Double {
+        kJ / 4.184
+    }
+    
+    static func convertToKilojules(fromKilocalories kcal: Double) -> Double {
+        kcal * 4.184
+    }
+}
