@@ -64,15 +64,15 @@ public struct FoodLabelValue: Codable {
     }
     
     public struct Regex {
-        static let units = FoodLabelUnit.allUnits.map { #"[ ]*\#($0)"# }.joined(separator: "|")
-        static let number = #"[0-9]+[0-9.:,]*"#
-        static let atStartOfString = #"^(?:(\#(number)(?:(?:\#(units)(?: |\)|$))| |$)*(?: |\)|\/|$))|nil(?: |$)|trace(?: |$))"#
-        static let atStartOfString_legacy2 = #"^(?:(\#(number)(?:(?:\#(units)(?: |\)|$))| |$))|nil(?: |$)|trace(?: |$))"#
-        static let atStartOfString_legacy1 = #"^(\#(number)(?:(?:\#(units)(?: |\)|$))| |$))"#
-        static let fromString = #"^(\#(number))(?:(\#(units)(?: |\)|$))| |\/|$)"#
+        public static let units = FoodLabelUnit.allUnits.map { #"[ ]*\#($0)"# }.joined(separator: "|")
+        public static let number = #"[0-9]+[0-9.:,]*"#
+        public static let atStartOfString = #"^(?:(\#(number)(?:(?:\#(units)(?: |\)|$))| |$)*(?: |\)|\/|$))|nil(?: |$)|trace(?: |$))"#
+        public static let atStartOfString_legacy2 = #"^(?:(\#(number)(?:(?:\#(units)(?: |\)|$))| |$))|nil(?: |$)|trace(?: |$))"#
+        public static let atStartOfString_legacy1 = #"^(\#(number)(?:(?:\#(units)(?: |\)|$))| |$))"#
+        public static let fromString = #"^(\#(number))(?:(\#(units)(?: |\)|$))| |\/|$)"#
         
         //TODO: Remove this
-        static let standardPattern =
+        public static let standardPattern =
         #"^(?:[^0-9.:]*(?: |\()|^\/?)([0-9.:]+)[ ]*(\#(units))+(?: .*|\).*$|\/?$)$"#
     }
     
