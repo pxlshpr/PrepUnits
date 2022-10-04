@@ -236,4 +236,12 @@ public extension FoodLabelValue {
             return amount
         }
     }
+    var energyAmountInKilojoules: Double {
+        if let unit = unit, unit == .kj {
+            return amount
+        } else {
+            return amount * KcalsPerKilojule
+        }
+    }
+
 }
