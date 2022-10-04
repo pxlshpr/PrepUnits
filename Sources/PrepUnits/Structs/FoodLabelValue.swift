@@ -247,3 +247,9 @@ public extension FoodLabelValue {
     }
 
 }
+
+public extension String {
+    var values: [FoodLabelValue] {
+        FoodLabelValue.detect(in: self)
+    }
+}
