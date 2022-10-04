@@ -1,6 +1,6 @@
 import Foundation
 
-extension Array where Element == FoodLabelValue {
+public extension Array where Element == FoodLabelValue {
     var containsValueWithEnergyUnit: Bool {
         contains(where: { $0.hasEnergyUnit } )
     }
