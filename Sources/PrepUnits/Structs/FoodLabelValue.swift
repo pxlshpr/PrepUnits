@@ -9,6 +9,8 @@ public struct FoodLabelValue: Codable {
     public let amount: Double
     public var unit: FoodLabelUnit?
     
+    public static let zero = Self.init(amount: 0)
+    
     public init?(fromString string: String) {
         
         /// Special cases
