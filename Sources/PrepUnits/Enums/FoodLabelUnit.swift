@@ -15,7 +15,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
     case ml
     case tbsp
 
-    init?(string: String) {
+    public init?(string: String) {
         for unit in Self.allCases {
             if unit.possibleUnits.contains(string) {
                 self = unit
@@ -29,7 +29,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
         self == .kcal || self == .kj
     }
     
-    var isAllowedInHeader: Bool {
+    public var isAllowedInHeader: Bool {
         switch self {
         case .kcal, .mcg, .mg, .kj, .p:
             return false
@@ -38,7 +38,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
         }
     }
     
-    var regex: String? {
+    public var regex: String? {
         switch self {
         case .g:
             return "^g$"
@@ -63,7 +63,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
         }
     }
     
-    var possibleUnits: [String] {
+    public var possibleUnits: [String] {
         switch self {
         case .g:
             return ["g", "c", "q", "gram", "grams", "€"]
@@ -88,7 +88,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
         }
     }
     
-    static var allUnits: [String] {
+    public static var allUnits: [String] {
         var allUnits: [String] = []
         for unit in allCases {
             allUnits.append(contentsOf: unit.possibleUnits)
@@ -96,7 +96,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
         return allUnits
     }
     
-    static var allUnitsRegexOptions = allUnits.joined(separator: "|")
+    public static var allUnitsRegexOptions = allUnits.joined(separator: "|")
 }
 
 extension FoodLabelUnit: CustomStringConvertible {
@@ -127,7 +127,7 @@ extension FoodLabelUnit: CustomStringConvertible {
 }
 
 extension FoodLabelUnit {
-    var isNutrientUnit: Bool {
+    public var isNutrientUnit: Bool {
         switch self {
         case .mcg, .mg, .g:
             return true

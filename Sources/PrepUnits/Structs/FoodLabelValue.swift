@@ -9,7 +9,7 @@ public struct FoodLabelValue: Codable {
     public let amount: Double
     public var unit: FoodLabelUnit?
     
-    init?(fromString string: String) {
+    public init?(fromString string: String) {
         
         /// Special cases
         let str = string.trimmingWhitespaces.lowercased()
@@ -63,7 +63,7 @@ public struct FoodLabelValue: Codable {
         self.unit = unit
     }
     
-    struct Regex {
+    public struct Regex {
         static let units = FoodLabelUnit.allUnits.map { #"[ ]*\#($0)"# }.joined(separator: "|")
         static let number = #"[0-9]+[0-9.:,]*"#
         static let atStartOfString = #"^(?:(\#(number)(?:(?:\#(units)(?: |\)|$))| |$)*(?: |\)|\/|$))|nil(?: |$)|trace(?: |$))"#
@@ -76,7 +76,7 @@ public struct FoodLabelValue: Codable {
         #"^(?:[^0-9.:]*(?: |\()|^\/?)([0-9.:]+)[ ]*(\#(units))+(?: .*|\).*$|\/?$)$"#
     }
     
-    static var DisqualifyingTexts: [String] = [
+    public static var DisqualifyingTexts: [String] = [
         "contributes to a daily diet",
         "daily value",
         "produced for",
@@ -86,17 +86,17 @@ public struct FoodLabelValue: Codable {
 //        "of which"
     ]
     
-    var hasEnergyUnit: Bool {
+    public var hasEnergyUnit: Bool {
         guard let unit = unit else { return false }
         return unit.isEnergy
     }
     
-    var hasNutrientUnit: Bool {
+    public var hasNutrientUnit: Bool {
         guard let unit = unit else { return false }
         return unit.isNutrientUnit
     }
     
-    var isReferenceEnergyValue: Bool {
+    public var isReferenceEnergyValue: Bool {
         if amount == 8400, unit == .kj {
             return true
         }
@@ -107,10 +107,10 @@ public struct FoodLabelValue: Codable {
     }
 }
 
-extension FoodLabelValue {
+public extension FoodLabelValue {
     
     ///Prioritises value with unit if only 1 is found, otherwise returning the first value
-    public static func detectSingleValue(in string: String) -> FoodLabelValue? {
+    static func detectSingleValue(in string: String) -> FoodLabelValue? {
         let values = Self.detect(in: string)
         if values.containingUnit.count == 1 {
             return values.containingUnit.first
@@ -119,7 +119,7 @@ extension FoodLabelValue {
         }
     }
 
-    public static func detect(in string: String) -> [FoodLabelValue] {
+    static func detect(in string: String) -> [FoodLabelValue] {
         detect(in: string, withPositions: false).map { $0.0 }
     }
     
@@ -229,16 +229,14 @@ extension FoodLabelValue: CustomStringConvertible {
 }
 
 //TODO: Move this
-struct NumberRegex {
+public struct NumberRegex {
     /// Recognizes number in a string using comma as decimal place (matches `39,3` and `2,05` but not `2,000` or `1,2,3`)
 //    static let usingCommaAsDecimalPlace = #"^[0-9]*,[0-9][0-9]?([^0-9]|$)"#
     static let usingCommaAsDecimalPlace = #"^[0-9]*,[0-9][0-9]*([^0-9]|$)"#
     static let isFraction = #"^([0-9]+)\/([0-9]+)"#
 }
 
-
-
-extension FoodLabelValue {
+public extension FoodLabelValue {
     var energyAmountInCalories: Double {
         if let unit = unit, unit == .kj {
             return amount / KcalsPerKilojule
