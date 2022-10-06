@@ -70,7 +70,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
         case .oz:
             return ["oz"]
         case .mg:
-            return ["mg", "mq"]
+            return ["mg", "mq", "ma"]
         case .kj:
             return ["kj", "kl", "kJ", "kilojules"]
         case .mcg:
