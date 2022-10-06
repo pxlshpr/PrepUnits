@@ -66,7 +66,7 @@ public struct FoodLabelValue: Codable {
     }
     
     public struct Regex {
-        public static let units = FoodLabelUnit.allUnitsForRegex.map { #"[ ]*\#($0)"# }.joined(separator: "|")
+        public static let units = FoodLabelUnit.allUnits.map { #"[ ]*\#($0)"# }.joined(separator: "|")
         public static let number = #"[0-9]+[0-9.:,]*"#
         public static let atStartOfString = #"^(?:(\#(number)(?:(?:\#(units)(?: |\)|$))| |$)*(?: |\)|\/|$))|nil(?: |$)|trace(?: |$))"#
         public static let atStartOfString_legacy2 = #"^(?:(\#(number)(?:(?:\#(units)(?: |\)|$))| |$))|nil(?: |$)|trace(?: |$))"#
@@ -106,19 +106,6 @@ public struct FoodLabelValue: Codable {
             return true
         }
         return false
-    }
-}
-
-extension FoodLabelUnit {
-    static var allUnitsForRegex: [String] {
-        allUnits + allUnitMisreads
-    }
-    
-    /// Returns possible misreads for units so values like "Protein 2a" aren't discarded
-    static var allUnitMisreads: [String] {
-        [
-            "a" /// possible misread for "g" when certain fonts are put through Vision
-        ]
     }
 }
 

@@ -66,7 +66,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
     public var possibleUnits: [String] {
         switch self {
         case .g:
-            return ["g", "c", "q", "gram", "grams", "€"]
+            return ["g", "c", "q", "a", "gram", "grams", "€"]
         case .oz:
             return ["oz"]
         case .mg:
