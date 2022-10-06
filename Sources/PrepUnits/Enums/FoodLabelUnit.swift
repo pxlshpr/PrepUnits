@@ -14,6 +14,7 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
     case oz
     case ml
     case tbsp
+    case iu
 
     public init?(string: String) {
         for unit in Self.allCases {
@@ -60,6 +61,8 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
             return "^(ml|mi)$"
         case .tbsp:
             return "^(tbsp|tablespoon(s|))$"
+        case .iu:
+            return "^(iu)$"
         }
     }
     
@@ -85,6 +88,8 @@ public enum FoodLabelUnit: Int, CaseIterable, Codable {
             return ["ml", "mL", "mi"]
         case .tbsp:
             return ["tbsp", "tablespoon", "tablespoons"]
+        case .iu:
+            return ["iu", "i.u."]
         }
     }
     
@@ -122,6 +127,8 @@ extension FoodLabelUnit: CustomStringConvertible {
             return "ml"
         case .tbsp:
             return "tbsp"
+        case .iu:
+            return "IU"
         }
     }
 }
