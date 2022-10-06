@@ -9,6 +9,7 @@ public enum NutrientUnit: Int16, CaseIterable {
     case mcgDFE
     case mcgRAE
     case IU = 100
+    case p
 }
 
 extension NutrientUnit: PrepUnit {
@@ -30,6 +31,8 @@ extension NutrientUnit: PrepUnit {
             return "micrograms of retinol activity equivalents"
         case .IU:
             return "international units"
+        case .p:
+            return "percentage"
         }
     }
     
@@ -51,6 +54,8 @@ extension NutrientUnit: PrepUnit {
             return "mcg RAE"
         case .IU:
             return "IU"
+        case .p:
+            return "%"
         }
     }
     
