@@ -256,7 +256,7 @@ public extension String {
         FoodLabelValue.detect(in: self, forScanner: true)
     }
     
-    var allDetectedValues: [FoodLabelValue] {
+    var detectedValues: [FoodLabelValue] {
         FoodLabelValue.detect(in: self, forScanner: false)
     }
 }
