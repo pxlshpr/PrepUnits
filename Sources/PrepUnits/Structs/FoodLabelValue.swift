@@ -121,12 +121,12 @@ public extension FoodLabelValue {
         }
     }
 
-    static func detect(in string: String) -> [FoodLabelValue] {
-        detect(in: string, withPositions: false).map { $0.0 }
+    static func detect(in string: String, forScanner: Bool = true) -> [FoodLabelValue] {
+        detect(in: string, withPositions: false, forScanner: forScanner).map { $0.0 }
     }
     
     /// Detects `Value`s in a provided `string` in the order that they appear
-    static func detect(in string: String, withPositions: Bool) -> [(FoodLabelValue, Int)] {
+    static func detect(in string: String, withPositions: Bool, forScanner: Bool = true) -> [(FoodLabelValue, Int)] {
         
         var string = string
         /// Add regex to check if we have "Not detected" or "nil" and replace with 0 (no unit)
@@ -139,14 +139,17 @@ public extension FoodLabelValue {
 //            return [(Value(amount: 0.05), 0)]
 //        }
         
-        /// Invalidates strings like `20 g = 3`
-        if string.matchesRegex(#"[0-9]+[ ]*[A-z]*[ ]*=[ ]*[0-9]+"#) {
-            return []
-        }
-        
-        /// Invalidates strings like `5 x 3`
-        if string.matchesRegex(#"[0-9]+[ ]*x[ ]*[0-9]+"#) {
-            return []
+        /// We invalidate these only for the `FoodLabelScanner` as they interfere with our tabular approach—so set this flag to `false` if you need to strictly grab all the values
+        if forScanner {
+            /// Invalidates strings like `20 g = 3`
+            if string.matchesRegex(#"[0-9]+[ ]*[A-z]*[ ]*=[ ]*[0-9]+"#) {
+                return []
+            }
+            
+            /// Invalidates strings like `5 x 3`
+            if string.matchesRegex(#"[0-9]+[ ]*x[ ]*[0-9]+"#) {
+                return []
+            }
         }
 
         for disqualifyingText in FoodLabelValue.DisqualifyingTexts {
@@ -249,7 +252,11 @@ public extension FoodLabelValue {
 }
 
 public extension String {
-    var values: [FoodLabelValue] {
-        FoodLabelValue.detect(in: self)
+    var detectedValuesForScanner: [FoodLabelValue] {
+        FoodLabelValue.detect(in: self, forScanner: true)
+    }
+    
+    var allDetectedValues: [FoodLabelValue] {
+        FoodLabelValue.detect(in: self, forScanner: false)
     }
 }
