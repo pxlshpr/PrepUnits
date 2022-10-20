@@ -1,6 +1,6 @@
 import SwiftSugar
 
-public enum VolumeUnit: Int16, CaseIterable {
+public enum VolumeUnit: Int16, CaseIterable, Codable {
     case gallon = 1
     case quart
     case pint
