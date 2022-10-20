@@ -1,6 +1,6 @@
 import Foundation
 
-public enum NutrientTypeGroup: Int16, CaseIterable {
+public enum NutrientTypeGroup: Int16, CaseIterable, Codable {
     case fats = 1
     case fibers
     case sugars

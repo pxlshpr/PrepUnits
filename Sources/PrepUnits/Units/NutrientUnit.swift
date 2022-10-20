@@ -1,6 +1,6 @@
 import Foundation
 
-public enum NutrientUnit: Int16, CaseIterable {
+public enum NutrientUnit: Int16, CaseIterable, Codable {
     case g = 1
     case mg
     case mgAT /// alpha-tocopherol

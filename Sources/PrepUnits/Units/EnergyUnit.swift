@@ -1,6 +1,6 @@
 import Foundation
 
-public enum EnergyUnit: Int16, CaseIterable {
+public enum EnergyUnit: Int16, CaseIterable, Codable {
     case kcal = 1
     case kJ
 }
