@@ -29,7 +29,7 @@ extension Macro: CustomStringConvertible {
     }
 }
 
-#if canImport(SwiftUI)
+#if os(iOS)
 import SwiftUI
 import SwiftSugar
 
