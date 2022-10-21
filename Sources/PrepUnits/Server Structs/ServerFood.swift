@@ -1,5 +1,4 @@
 import Foundation
-import PrepUnits
 
 public struct ServerFood: Codable {
     let id: UUID?
