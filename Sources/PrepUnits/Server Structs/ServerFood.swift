@@ -7,7 +7,7 @@ public struct ServerFood: Codable {
     let detail: String?
     let brand: String?
     let amount: ServerAmountWithUnit
-    let serving: ServerAmountWithUnit
+    let serving: ServerAmountWithUnit?
     let nutrients: ServerNutrients
     let sizes: [ServerSize]
     let density: ServerDensity?
@@ -19,7 +19,7 @@ public struct ServerFood: Codable {
     let verificationStatus: Int16?
     let database: Int16?
     
-    public init(id: UUID?, name: String, emoji: String, detail: String?, brand: String?, amount: ServerAmountWithUnit, serving: ServerAmountWithUnit, nutrients: ServerNutrients, sizes: [ServerSize], density: ServerDensity?, linkUrl: String?, prefilledUrl: String?, imageIds: [UUID]?, type: Int16, verificationStatus: Int16? = nil, database: Int16? = nil) {
+    public init(id: UUID?, name: String, emoji: String, detail: String?, brand: String?, amount: ServerAmountWithUnit, serving: ServerAmountWithUnit?, nutrients: ServerNutrients, sizes: [ServerSize], density: ServerDensity?, linkUrl: String?, prefilledUrl: String?, imageIds: [UUID]?, type: Int16, verificationStatus: Int16? = nil, database: Int16? = nil) {
         self.id = id
         self.name = name
         self.emoji = emoji
