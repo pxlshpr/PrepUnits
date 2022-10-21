@@ -1,7 +1,3 @@
-#if canImport(SwiftUI)
-import SwiftUI
-import SwiftSugar
-
 public enum Macro: String, CaseIterable, Codable {
     case carb = "Carbohydrate"
     case fat = "Fat"
@@ -33,7 +29,10 @@ extension Macro: CustomStringConvertible {
     }
 }
 
-#if canImport(UIKit)
+#if canImport(SwiftUI)
+import SwiftUI
+import SwiftSugar
+
 public extension Macro {
     func textColor(for colorScheme: ColorScheme) -> Color {
         switch self {
