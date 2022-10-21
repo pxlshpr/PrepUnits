@@ -1,6 +1,6 @@
 import Foundation
 
-extension VolumeUnit {
+public extension VolumeUnit {
     var serverInt: Int16? {
         //TODO: Choose these based on user settings
         switch self {
@@ -26,13 +26,13 @@ extension VolumeUnit {
     }
 }
 
-extension WeightUnit {
+public extension WeightUnit {
     var serverInt: Int16 {
         rawValue
     }
 }
 
-extension FormUnit {
+public extension FormUnit {
     var sizeUnitId: UUID? {
         guard case .size(let size, _) = self else { return nil }
         return size.id
