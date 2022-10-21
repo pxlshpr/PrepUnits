@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftSugar
 
 public enum Macro: String, CaseIterable, Codable {
     case carb = "Carbohydrate"
@@ -16,6 +17,23 @@ public extension Macro {
         }
     }
     
+    var initial: String {
+        switch self {
+        case .carb: return "C"
+        case .fat: return "F"
+        case .protein: return "P"
+        }
+    }
+}
+
+extension Macro: CustomStringConvertible {
+    public var description: String {
+        rawValue
+    }
+}
+
+#if canImport(UIKit)
+public extension Macro {
     func textColor(for colorScheme: ColorScheme) -> Color {
         switch self {
         case .carb:
@@ -57,19 +75,5 @@ public extension Macro {
     var labelUiColor: UIColor {
         UIColor(named: "\(rawValue)-Label") ?? .label
     }
-    
-    var initial: String {
-        switch self {
-        case .carb: return "C"
-        case .fat: return "F"
-        case .protein: return "P"
-        }
-    }
 }
-
-extension Macro: CustomStringConvertible {
-    public var description: String {
-        rawValue
-    }
-}
-
+#endif
