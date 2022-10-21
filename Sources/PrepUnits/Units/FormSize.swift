@@ -2,10 +2,10 @@ import Foundation
 
 public struct FormSize: Hashable, Codable {
     
-    var id: UUID
-    var volumePrefixUnit: FormUnit?
-    var name: String
-    var unit: FormUnit
+    public var id: UUID
+    public var volumePrefixUnit: FormUnit?
+    public var name: String
+    public var unit: FormUnit
     
     /**
      These are required to support decimal places in textfields.
@@ -15,11 +15,11 @@ public struct FormSize: Hashable, Codable {
         - the value gets stored as the double `3.0`, losing the information of the decimal place
         - this then gets reset to `3` by the getter of the `amountString` or `quantityString` helper, thus never being able to see the `.` being entered.
      */
-    var internalQuantityString = ""
-    var internalAmountString = ""
+    public var internalQuantityString = ""
+    public var internalAmountString = ""
     
-    var internalQuantity: Double?
-    var internalAmount: Double?
+    public var internalQuantity: Double?
+    public var internalAmount: Double?
 
     public init(quantity: Double = 1,
          volumePrefixUnit: FormUnit? = nil,
