@@ -64,6 +64,7 @@ public enum NutrientType: Int16, CaseIterable, Codable {
     case salt
     
     /// **For internal-use only**
+    case energyWithoutDietaryFibre
     case water = 500
     case freeSugars
     case ash
@@ -416,6 +417,8 @@ extension NutrientType {
         case .choline:
             return "Choline"
 
+        case .energyWithoutDietaryFibre:
+            return "Energy without Dietary Fibre"
         case .water:
             return "Water"
         case .freeSugars:
