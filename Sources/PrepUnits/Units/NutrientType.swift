@@ -65,6 +65,15 @@ public enum NutrientType: Int16, CaseIterable, Codable {
     case gluten
     case starch
     case salt
+    
+    /// Not-displayed
+    case water = 500
+    case freeSugars
+    case ash
+    
+    case preformedVitaminARetinol
+    case betaCarotene
+    case provitaminA_betaCaroteneEquivalents
 }
 
 extension NutrientType {
@@ -84,7 +93,7 @@ extension NutrientType {
         types(inGroup: .misc)
     }
     
-    public var group: NutrientTypeGroup {
+    public var group: NutrientTypeGroup? {
         switch self {
         case .saturatedFat, .monounsaturatedFat, .polyunsaturatedFat, .transFat, .cholesterol:
             return .fats
@@ -98,6 +107,8 @@ extension NutrientType {
             return .vitamins
         case .caffeine, .ethanol, .taurine, .polyols, .gluten, .starch, .salt:
             return .misc
+        default:
+            return nil
         }
     }
     
@@ -398,6 +409,18 @@ extension NutrientType {
             return "Starch"
         case .salt:
             return "Salt"
+        case .water:
+            return "Water"
+        case .freeSugars:
+            return "Free Sugars"
+        case .ash:
+            return "Ash"
+        case .preformedVitaminARetinol:
+            return "Preformed Vitamin A (Retinol)"
+        case .betaCarotene:
+            return "Beta-carotene"
+        case .provitaminA_betaCaroteneEquivalents:
+            return "Provitamin A (b-carotene equivalents)"
         }
     }
     
@@ -508,6 +531,8 @@ extension NutrientType {
         case .starch:
             return nil
         case .salt:
+            return nil
+        default:
             return nil
         }
     }
