@@ -18,8 +18,9 @@ public struct ServerFood: Codable {
     let type: Int16
     let verificationStatus: Int16?
     let database: Int16?
+    let databaseFoodId: String?
     
-    public init(id: UUID?, name: String, emoji: String, detail: String?, brand: String?, amount: ServerAmountWithUnit, serving: ServerAmountWithUnit?, nutrients: ServerNutrients, sizes: [ServerSize], density: ServerDensity?, linkUrl: String?, prefilledUrl: String?, imageIds: [UUID]?, type: Int16, verificationStatus: Int16? = nil, database: Int16? = nil) {
+    public init(id: UUID?, name: String, emoji: String, detail: String?, brand: String?, amount: ServerAmountWithUnit, serving: ServerAmountWithUnit?, nutrients: ServerNutrients, sizes: [ServerSize], density: ServerDensity?, linkUrl: String?, prefilledUrl: String?, imageIds: [UUID]?, type: Int16, verificationStatus: Int16? = nil, database: Int16? = nil, databaseFoodId: String? = nil) {
         self.id = id
         self.name = name
         self.emoji = emoji
@@ -36,5 +37,6 @@ public struct ServerFood: Codable {
         self.type = type
         self.verificationStatus = verificationStatus
         self.database = database
+        self.databaseFoodId = databaseFoodId
     }
 }
