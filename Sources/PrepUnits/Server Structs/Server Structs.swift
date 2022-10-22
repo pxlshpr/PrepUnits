@@ -47,7 +47,7 @@ public struct ServerMicronutrient: Codable {
     public var amount: Double
     public var unit: Int16
     
-    public init(type: Int16, amount: Double, unit: Int16) {
+    public init(nutrientType: Int16, amount: Double, unit: Int16) {
         self.type = type
         self.amount = amount
         self.unit = unit
