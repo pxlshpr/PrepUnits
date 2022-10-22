@@ -3,7 +3,7 @@ import Foundation
 public enum FoodType: Codable {
     case userPublic(FoodVerificationStatus)
     case userPrivate
-    case foodDatabase(database: FoodDatabase, foodId: String)
+    case foodDatabase(database: FoodDatabase, foodId: String?)
     
     public var serverInt: Int16 {
         switch self {
