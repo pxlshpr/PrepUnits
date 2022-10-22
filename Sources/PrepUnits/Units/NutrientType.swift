@@ -37,25 +37,22 @@ public enum NutrientType: Int16, CaseIterable, Codable {
     
     /// Vitamins
     case vitaminA = 200
-    case vitaminB6
-    case vitaminB12
-    case vitaminC
-    case vitaminD
+    case vitaminB1_thiamine
+    case vitaminB2_riboflavin
+    case vitaminB3_niacin
+    case vitaminB5_pantothenicAcid
+    case vitaminB6_pyridoxine
+    case vitaminB7_biotin
+    case vitaminB9_folate
+    case vitaminB9_folicAcid
+    case vitaminB12_cobalamin
+    case vitaminC_ascorbicAcid
+    case vitaminD_calciferol
     case vitaminE
-    case vitaminK
-    case biotin
+    case vitaminK1_phylloquinone
+    case vitaminK2_menaquinone
+    
     case choline
-    case folate
-    case niacin
-    case pantothenicAcid
-    case riboflavin
-    case thiamin
-    case vitaminB2
-    case cobalamin
-    case folicAcid
-    case vitaminB1
-    case vitaminB3
-    case vitaminK2
     
     /// Misc
     case caffeine = 250
@@ -66,14 +63,31 @@ public enum NutrientType: Int16, CaseIterable, Codable {
     case starch
     case salt
     
-    /// Not-displayed
+    /// **For internal-use only**
     case water = 500
     case freeSugars
     case ash
     
+    /// Vitamin Related
     case preformedVitaminARetinol
     case betaCarotene
-    case provitaminA_betaCaroteneEquivalents
+    case provitaminABetaCaroteneEquivalents
+    
+    case niacinDerivedEquivalents
+    
+    case totalFolates
+    case dietaryFolateEquivalents
+    case alphaTocopherol
+    
+    /// Essential Amino Acids
+    case tryptophan
+    
+    /// Fatty Acids
+    case linoleicAcid
+    case alphaLinolenicAcid
+    case eicosapentaenoicAcid
+    case docosapentaenoicAcid
+    case docosahexaenoicAcid
 }
 
 extension NutrientType {
@@ -103,9 +117,9 @@ extension NutrientType {
             return .sugars
         case .calcium, .chloride, .chromium, .copper, .iodine, .iron, .magnesium, .manganese, .molybdenum, .phosphorus, .potassium, .selenium, .sodium, .zinc:
             return .minerals
-        case .vitaminA, .vitaminB6, .vitaminB12, .vitaminC, .vitaminD, .vitaminE, .vitaminK, .biotin, .choline, .folate, .niacin, .pantothenicAcid, .riboflavin, .thiamin, .vitaminB2, .cobalamin, .folicAcid, .vitaminB1, .vitaminB3, .vitaminK2:
+        case .vitaminA, .vitaminB1_thiamine, .vitaminB2_riboflavin, .vitaminB3_niacin, .vitaminB5_pantothenicAcid, .vitaminB6_pyridoxine, .vitaminB7_biotin, .vitaminB9_folate, .vitaminB9_folicAcid, .vitaminB12_cobalamin, .vitaminC_ascorbicAcid, .vitaminD_calciferol, .vitaminE, .vitaminK1_phylloquinone, .vitaminK2_menaquinone:
             return .vitamins
-        case .caffeine, .ethanol, .taurine, .polyols, .gluten, .starch, .salt:
+        case .caffeine, .ethanol, .taurine, .polyols, .gluten, .starch, .salt, .choline:
             return .misc
         default:
             return nil
@@ -114,19 +128,19 @@ extension NutrientType {
     
     public var units: [NutrientUnit] {
         switch self {
-        case .cholesterol, .calcium, .chloride, .copper, .iron, .magnesium, .manganese, .phosphorus, .potassium, .sodium, .zinc, .vitaminC, .vitaminB6, .choline, .pantothenicAcid, .riboflavin, .thiamin, .caffeine, .vitaminB1, .vitaminB3, .vitaminK2, .taurine:
+        case .cholesterol, .calcium, .chloride, .copper, .iron, .magnesium, .manganese, .phosphorus, .potassium, .sodium, .zinc, .vitaminC_ascorbicAcid, .vitaminB6_pyridoxine, .choline, .vitaminB5_pantothenicAcid, .vitaminB2_riboflavin, .vitaminB1_thiamine, .caffeine, .vitaminK2_menaquinone, .taurine:
             return [.mg]
-        case .chromium, .iodine, .molybdenum, .selenium, .vitaminB12, .vitaminK, .biotin, .vitaminB2, .cobalamin, .folicAcid:
+        case .chromium, .iodine, .molybdenum, .selenium, .vitaminB12_cobalamin, .vitaminK1_phylloquinone, .vitaminB7_biotin, .vitaminB9_folicAcid:
             return [.mcg]
         case .vitaminA:
             return [.mcgRAE, .IU]
-        case .vitaminD:
+        case .vitaminD_calciferol:
             return [.mcg, .IU]
         case .vitaminE:
             return [.mgAT, .IU]
-        case .folate:
+        case .vitaminB9_folate:
             return [.mcgDFE, .mcg]
-        case .niacin:
+        case .vitaminB3_niacin:
             return [.mgNE, .mg]
         default:
             return [.g]
@@ -161,32 +175,28 @@ extension NutrientType {
             .sodium,
             .zinc,
             .vitaminA,
-            .vitaminB1,
-            .vitaminB2,
-            .vitaminB3,
-            .vitaminB6,
-            .vitaminB12,
-            .vitaminC,
-            .vitaminD,
+            .vitaminB1_thiamine,
+            .vitaminB2_riboflavin,
+            .vitaminB3_niacin,
+            .vitaminB5_pantothenicAcid,
+            .vitaminB6_pyridoxine,
+            .vitaminB7_biotin,
+            .vitaminB9_folate,
+            .vitaminB9_folicAcid,
+            .vitaminB12_cobalamin,
+            .vitaminC_ascorbicAcid,
+            .vitaminD_calciferol,
             .vitaminE,
-            .vitaminK,
-            .vitaminK2,
-            .biotin,
-            .cobalamin,
-            .choline,
-            .folate,
-            .folicAcid,
-            .niacin,
-            .pantothenicAcid,
-            .riboflavin,
-            .thiamin,
+            .vitaminK1_phylloquinone,
+            .vitaminK2_menaquinone,
             .caffeine,
             .ethanol,
             .gluten,
             .polyols,
             .salt,
             .starch,
-            .taurine
+            .taurine,
+            .choline,
         ]
         guard let index = orderedArray.firstIndex(of: self) else {
             return 0
@@ -355,50 +365,43 @@ extension NutrientType {
             return "Sodium"
         case .zinc:
             return "Zinc"
+            
+            
         case .vitaminA:
             return "Vitamin A"
-        case .vitaminB6:
-            return "Vitamin B6"
-        case .vitaminB12:
-            return "Vitamin B12"
-        case .vitaminC:
-            return "Vitamin C"
-        case .vitaminD:
-            return "Vitamin D"
+        case .vitaminB1_thiamine:
+            return "Vitamin B1 (Thiamine)"
+        case .vitaminB2_riboflavin:
+            return "Vitamin B2 (Riboflavin)"
+        case .vitaminB3_niacin:
+            return "Vitamin B3 (Niacin)"
+        case .vitaminB5_pantothenicAcid:
+            return "Vitamin B5 (Pantothenic Acid)"
+        case .vitaminB6_pyridoxine:
+            return "Vitamin B6 (Pyridoxine)"
+        case .vitaminB7_biotin:
+            return "Vitamin B7 (Biotin)"
+        case .vitaminB9_folate:
+            return "Vitamin B9 (Folate)"
+        case .vitaminB9_folicAcid:
+            return "Vitamin B9 (Folic Acid)"
+        case .vitaminB12_cobalamin:
+            return "Vitamin B12 (Cobalamin)"
+        case .vitaminC_ascorbicAcid:
+            return "Vitamin C (Ascorbic Acid)"
+        case .vitaminD_calciferol:
+            return "Vitamin D (Calciferol)"
         case .vitaminE:
             return "Vitamin E"
-        case .vitaminK:
-            return "Vitamin K"
-        case .biotin:
-            return "Biotin"
-        case .choline:
-            return "Choline"
-        case .folate:
-            return "Folate"
-        case .niacin:
-            return "Niacin"
-        case .pantothenicAcid:
-            return "Pantothenic Acid"
-        case .riboflavin:
-            return "Riboflavin"
-        case .thiamin:
-            return "Thiamin"
+        case .vitaminK1_phylloquinone:
+            return "Vitamin K1 (Phylloquinone)"
+        case .vitaminK2_menaquinone:
+            return "Vitamin K2 (Menaquinone)"
+            
         case .caffeine:
             return "Caffeine"
         case .ethanol:
             return "Ethanol"
-        case .vitaminB2:
-            return "Vitamin B2"
-        case .cobalamin:
-            return "Cobalamin"
-        case .folicAcid:
-            return "Folic Acid"
-        case .vitaminB1:
-            return "Vitamin B1"
-        case .vitaminB3:
-            return "Vitamin B3"
-        case .vitaminK2:
-            return "Vitamin K2"
         case .taurine:
             return "Taurine"
         case .polyols:
@@ -409,17 +412,22 @@ extension NutrientType {
             return "Starch"
         case .salt:
             return "Salt"
+            
+        case .choline:
+            return "Choline"
+
         case .water:
             return "Water"
         case .freeSugars:
             return "Free Sugars"
+            
         case .ash:
             return "Ash"
         case .preformedVitaminARetinol:
             return "Preformed Vitamin A (Retinol)"
         case .betaCarotene:
             return "Beta-carotene"
-        case .provitaminA_betaCaroteneEquivalents:
+        case .provitaminABetaCaroteneEquivalents:
             return "Provitamin A (b-carotene equivalents)"
         }
     }
@@ -479,48 +487,40 @@ extension NutrientType {
             return (11, .mg)
         case .vitaminA:
             return (900, .mcgRAE)
-        case .vitaminB6:
+        case .vitaminB6_pyridoxine:
             return (1.7, .mg)
-        case .vitaminB12:
+        case .vitaminB12_cobalamin:
             return (2.4, .mcg)
-        case .vitaminC:
+        case .vitaminC_ascorbicAcid:
             return (90, .mg)
-        case .vitaminD:
+        case .vitaminD_calciferol:
             return (20, .mcg)
         case .vitaminE:
             return (15, .mgAT)
-        case .vitaminK:
+        case .vitaminK1_phylloquinone:
             return (120, .mcg)
-        case .biotin:
+        case .vitaminB7_biotin:
             return (30, .mcg)
         case .choline:
             return (550, .mg)
-        case .folate:
+        case .vitaminB9_folate:
             return (400, .mcgDFE)
-        case .niacin:
+        case .vitaminB3_niacin:
             return (16, .mgNE)
-        case .pantothenicAcid:
+        case .vitaminB5_pantothenicAcid:
             return (5, .mg)
-        case .riboflavin:
+        case .vitaminB2_riboflavin:
             return (1.3, .mg)
-        case .thiamin:
+        case .vitaminB1_thiamine:
             return (1.2, .mg)
         case .caffeine:
             /// Source: https://www.hsph.harvard.edu/nutritionsource/caffeine/
             return (400, .mg)
         case .ethanol:
             return nil
-        case .vitaminB2:
+        case .vitaminB9_folicAcid:
             return nil
-        case .cobalamin:
-            return nil
-        case .folicAcid:
-            return nil
-        case .vitaminB1:
-            return nil
-        case .vitaminB3:
-            return nil
-        case .vitaminK2:
+        case .vitaminK2_menaquinone:
             return nil
         case .taurine:
             return nil
