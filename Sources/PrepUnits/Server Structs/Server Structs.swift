@@ -43,14 +43,19 @@ public struct ServerBarcode: Codable {
 }
 
 public struct ServerMicronutrient: Codable {
-    public var type: Int16
-    public var amount: Double
-    public var unit: Int16
+    /// Type
+    public var t: Int16
+    
+    /// Amount
+    public var a: Double
+    
+    /// Unit
+    public var u: Int16
     
     public init(nutrientType: Int16, amount: Double, unit: Int16) {
-        self.type = nutrientType
-        self.amount = amount
-        self.unit = unit
+        self.t = nutrientType
+        self.a = amount
+        self.u = unit
     }
 }
 
