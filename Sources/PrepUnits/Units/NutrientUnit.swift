@@ -10,6 +10,8 @@ public enum NutrientUnit: Int16, CaseIterable, Codable {
     case mcgRAE
     case IU = 100
     case p
+    case kcal = 200
+    case kJ
 }
 
 extension NutrientUnit: PrepUnit {
@@ -33,6 +35,10 @@ extension NutrientUnit: PrepUnit {
             return "international units"
         case .p:
             return "percentage"
+        case .kcal:
+            return "kilocalories"
+        case .kJ:
+            return "kilojules"
         }
     }
     
@@ -56,6 +62,10 @@ extension NutrientUnit: PrepUnit {
             return "IU"
         case .p:
             return "%"
+        case .kcal:
+            return "kcal"
+        case .kJ:
+            return "kJ"
         }
     }
     
