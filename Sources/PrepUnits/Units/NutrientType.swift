@@ -429,6 +429,27 @@ extension NutrientType {
             return "Beta-carotene"
         case .provitaminABetaCaroteneEquivalents:
             return "Provitamin A (b-carotene equivalents)"
+            
+        case .niacinDerivedEquivalents:
+            return "Niacin Derived Equivalents"
+        case .totalFolates:
+            return "Total Folates"
+        case .dietaryFolateEquivalents:
+            return "Dietary Folate Equivalents"
+        case .alphaTocopherol:
+            return "Alpha Tocopherol"
+        case .tryptophan:
+            return "Tryptophan"
+        case .linoleicAcid:
+            return "Linoleic Acid"
+        case .alphaLinolenicAcid:
+            return "Alpha-linolenic Acid"
+        case .eicosapentaenoicAcid:
+            return "Eicosapentaenoic Acid"
+        case .docosapentaenoicAcid:
+            return "Docosapentaenoic Acid"
+        case .docosahexaenoicAcid:
+            return "Docosahexaenoic Acid"
         }
     }
     
