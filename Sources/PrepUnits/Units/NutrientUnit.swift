@@ -9,9 +9,13 @@ public enum NutrientUnit: Int16, CaseIterable, Codable {
     case mcgDFE
     case mcgRAE
     case IU = 100
-    case p
+    case p /// percent
     case kcal = 200
     case kJ
+    case pH = 300
+    case SG
+    case mcmolTE
+    case mgGAE
 }
 
 extension NutrientUnit: PrepUnit {
@@ -39,6 +43,14 @@ extension NutrientUnit: PrepUnit {
             return "kilocalories"
         case .kJ:
             return "kilojules"
+        case .pH:
+            return "potential of hydrogen"
+        case .SG:
+            return "specific gravity"
+        case .mcmolTE:
+            return "antioxidant activity"
+        case .mgGAE:
+            return "total phenolic content"
         }
     }
     
@@ -66,6 +78,14 @@ extension NutrientUnit: PrepUnit {
             return "kcal"
         case .kJ:
             return "kJ"
+        case .pH:
+            return "pH"
+        case .SG:
+            return "SG"
+        case .mcmolTE:
+            return "mcmol TE"
+        case .mgGAE:
+            return "mg GAE"
         }
     }
     
