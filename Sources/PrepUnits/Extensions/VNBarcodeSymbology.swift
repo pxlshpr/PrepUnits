@@ -1,6 +1,6 @@
 import Vision
 
-extension VNBarcodeSymbology {
+public extension VNBarcodeSymbology {
     var serverInt: Int16 {
         switch self {
         case .aztec: return 1
