@@ -1,8 +1,8 @@
 import Foundation
 
 public struct ServerFoodForm: Codable {
-    let food: ServerFood
-    let barcodes: [ServerBarcode]
+    public let food: ServerFood
+    public let barcodes: [ServerBarcode]
     
     public init(food: ServerFood, barcodes: [ServerBarcode]) {
         self.food = food
