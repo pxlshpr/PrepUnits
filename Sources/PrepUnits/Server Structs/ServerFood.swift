@@ -1,24 +1,23 @@
 import Foundation
 
 public struct ServerFood: Codable {
-    let id: UUID?
-    let name: String
-    let emoji: String
-    let detail: String?
-    let brand: String?
-    let amount: ServerAmountWithUnit
-    let serving: ServerAmountWithUnit?
-    let nutrients: ServerNutrients
-    let sizes: [ServerSize]
-    let density: ServerDensity?
-    let linkUrl: String?
-    let prefilledUrl: String?
-    let imageIds: [UUID]?
-    
-    let type: Int16
-    let verificationStatus: Int16?
-    let database: Int16?
-    let databaseFoodId: String?
+    public let id: UUID?
+    public let name: String
+    public let emoji: String
+    public let detail: String?
+    public let brand: String?
+    public let amount: ServerAmountWithUnit
+    public let serving: ServerAmountWithUnit?
+    public let nutrients: ServerNutrients
+    public let sizes: [ServerSize]
+    public let density: ServerDensity?
+    public let linkUrl: String?
+    public let prefilledUrl: String?
+    public let imageIds: [UUID]?
+    public let type: Int16
+    public let verificationStatus: Int16?
+    public let database: Int16?
+    public let databaseFoodId: String?
     
     public init(id: UUID?, name: String, emoji: String, detail: String?, brand: String?, amount: ServerAmountWithUnit, serving: ServerAmountWithUnit?, nutrients: ServerNutrients, sizes: [ServerSize], density: ServerDensity?, linkUrl: String?, prefilledUrl: String?, imageIds: [UUID]?, type: Int16, verificationStatus: Int16? = nil, database: Int16? = nil, databaseFoodId: String? = nil) {
         self.id = id
