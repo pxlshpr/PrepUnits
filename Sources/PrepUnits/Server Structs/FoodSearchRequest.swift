@@ -1,7 +1,9 @@
 import Foundation
 
 public struct ServerFoodSearchParams: Codable {
+    
     public let string: String
+    
     public let isVerified: Bool?
     /** When specified, the search is restricted to only the provided user's private database. */
     public let userId: UUID?
@@ -12,12 +14,17 @@ public struct ServerFoodSearchParams: Codable {
     /** When set, `databaseId` is ignored and search scope includes all database */
     public let includeAllDatabases: Bool
     
-    public init(string: String, isVerified: Bool = true, userId: UUID? = nil, databaseId: UUID? = nil, includeAllDatabases: Bool = false) {
+    public let page: Int
+    public let per: Int
+    
+    public init(string: String, isVerified: Bool = true, userId: UUID? = nil, databaseId: UUID? = nil, includeAllDatabases: Bool = false, page: Int = 1, per: Int = 25) {
         self.string = string
         self.isVerified = isVerified
         self.userId = userId
         self.databaseId = databaseId
         self.includeAllDatabases = includeAllDatabases
+        self.page = page
+        self.per = per
     }
 }
 
@@ -40,22 +47,29 @@ public enum SearchScope {
 
     var includeAllDatabases: Bool {
         switch self {
-        case .all:  return true
-        default:    return false
+        case .all:
+            return true
+        default:
+            return false
         }
     }
 
     var databaseId: UUID? {
         switch self {
-        case .database(let databaseId): return databaseId
-        default:                        return nil
+        case .database(let databaseId):
+            return databaseId
+        default:
+            return nil
         }
     }
     var userId: UUID? {
         switch self {
-        case .all(let userId, _):       return userId
-        case .personal(let userId, _):  return userId
-        default:                        return nil
+        case .all(let userId, _):
+            return userId
+        case .personal(let userId, _):
+            return userId
+        default:
+            return nil
         }
     }
     
