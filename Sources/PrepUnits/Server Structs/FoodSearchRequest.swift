@@ -1,16 +1,16 @@
 import Foundation
 
-public struct ServerSearchRequest: Codable {
-    let string: String
-    let isVerified: Bool?
+public struct ServerFoodSearchParams: Codable {
+    public let string: String
+    public let isVerified: Bool?
     /** When specified, the search is restricted to only the provided user's private database. */
-    let userId: UUID?
+    public let userId: UUID?
     
     /** When specified, search is restriced to only the provided database */
-    let databaseId: UUID?
+    public let databaseId: UUID?
     
     /** When set, `databaseId` is ignored and search scope includes all database */
-    let includeAllDatabases: Bool
+    public let includeAllDatabases: Bool
     
     public init(string: String, isVerified: Bool = true, userId: UUID? = nil, databaseId: UUID? = nil, includeAllDatabases: Bool = false) {
         self.string = string
@@ -28,8 +28,8 @@ public enum SearchScope {
     case personal(userId: UUID, isVerified: Bool)
     case published
     
-    public func serverSearchRequest(for searchString: String) -> ServerSearchRequest {
-        ServerSearchRequest(
+    public func serverSearchParam(for searchString: String) -> ServerFoodSearchParams {
+        ServerFoodSearchParams(
             string: searchString,
             isVerified: isVerified,
             userId: userId,
