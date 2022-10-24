@@ -34,6 +34,24 @@ import SwiftUI
 import SwiftSugar
 
 public extension Macro {
+
+    func fillColor(for colorScheme: ColorScheme) -> Color {
+        switch self {
+        case .carb:
+            return colorScheme == .light
+            ? Color(hex: "FFB02A")
+            : Color(hex: "FFCD34")
+        case .fat:
+            return colorScheme == .light
+            ? Color(hex: "B900FF")
+            : Color(hex: "DF00FF")
+        case .protein:
+            return colorScheme == .light
+            ? Color(hex: "47ACB1")
+            : Color(hex: "47ACB1")
+        }
+    }
+
     func textColor(for colorScheme: ColorScheme) -> Color {
         switch self {
         case .carb:
