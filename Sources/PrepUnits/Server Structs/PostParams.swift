@@ -8,3 +8,10 @@ public struct PostParamsFoodsForIds: Codable {
     }
 }
 
+public struct PostParamsBarcodes: Codable {
+    public let payloads: [String]
+    
+    public init(payloads: [String]) {
+        self.payloads = payloads
+    }
+}
