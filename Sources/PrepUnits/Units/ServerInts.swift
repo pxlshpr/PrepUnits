@@ -61,4 +61,26 @@ public extension FormUnit {
         case .serving:  return 4
         }
     }
+    
+//    init?(serverAmountWithUnit: ServerAmountWithUnit) {
+//        switch serverAmountWithUnit.unit {
+//        case 1:
+//            guard let weightUnitServerInt,
+//                  let weightUnit = WeightUnit(rawValue: weightUnitServerInt) else {
+//                return nil
+//            }
+//            self = .weight(weightUnit)
+//        case 2:
+//            guard let volumeUnitServerInt,
+//                  let volumeUnit = VolumeUnit(rawValue: volumeUnitServerInt) else {
+//                return nil
+//            }
+//            self = .volume(volumeUnit)
+//        case 3:
+//        case 4:
+//            self = .serving
+//        default:
+//            return nil
+//        }
+//    }
 }
