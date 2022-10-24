@@ -25,7 +25,7 @@ public struct PrepFood: Codable {
     public let type: FoodType
     public let imageIds: [UUID]?
 
-    init?(serverFood: ServerFood) {
+    public init?(serverFood: ServerFood) {
         guard let id = serverFood.id else {
             return nil
         }
