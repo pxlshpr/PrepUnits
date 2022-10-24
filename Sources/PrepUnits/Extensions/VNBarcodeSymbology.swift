@@ -1,6 +1,6 @@
-#if os(iOS) || os(macOS)
 import Vision
 
+@available(iOS 16, macOS 12, *)
 public extension VNBarcodeSymbology {
     var serverInt: Int16 {
         switch self {
@@ -31,4 +31,3 @@ public extension VNBarcodeSymbology {
         }
     }
 }
-#endif
