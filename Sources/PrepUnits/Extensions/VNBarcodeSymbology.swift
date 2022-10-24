@@ -1,3 +1,4 @@
+#if os(iOS) || os(macOS)
 import Vision
 
 public extension VNBarcodeSymbology {
@@ -30,3 +31,4 @@ public extension VNBarcodeSymbology {
         }
     }
 }
+#endif
