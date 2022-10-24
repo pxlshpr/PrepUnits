@@ -1,6 +1,6 @@
 import Foundation
 
-public class PrepFood: Codable {
+public class PrepFood: Codable, Identifiable {
     
     public let id: UUID
     public let name: String
