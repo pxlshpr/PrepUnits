@@ -1,6 +1,6 @@
 import Foundation
 
-public struct FoodSearchResult: Codable, Identifiable {
+public struct FoodSearchResult: Codable, Identifiable, Hashable, Equatable {
     public let id: UUID
     public let name: String
     public let emoji: String
