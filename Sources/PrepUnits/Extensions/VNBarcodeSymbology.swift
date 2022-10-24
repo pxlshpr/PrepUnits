@@ -1,3 +1,4 @@
+#if os(iOS) || os(macOS)
 import Vision
 
 @available(iOS 16, macOS 12, *)
@@ -31,3 +32,4 @@ public extension VNBarcodeSymbology {
         }
     }
 }
+#endif
