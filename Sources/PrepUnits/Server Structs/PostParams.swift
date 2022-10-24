@@ -1,6 +1,6 @@
 import Foundation
 
 public struct PostParamsFoodsForIds: Codable {
-    let ids: [UUID]
+    public let ids: [UUID]
 }
 
