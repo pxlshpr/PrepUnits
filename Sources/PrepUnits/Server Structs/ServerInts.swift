@@ -26,12 +26,6 @@ public extension VolumeUnit {
     }
 }
 
-public extension WeightUnit {
-    var serverInt: Int16 {
-        rawValue
-    }
-}
-
 public extension FormUnit {
     var sizeUnitId: UUID? {
         guard case .size(let size, _) = self else { return nil }
@@ -43,14 +37,14 @@ public extension FormUnit {
         return volumeUnit?.serverInt
     }
     
-    var volumeUnitServerInt: Int16? {
+    var volumeUnit: Int16? {
         guard case .volume(let volumeUnit) = self else { return nil }
         return volumeUnit.serverInt
     }
 
-    var weightUnitServerInt: Int16? {
+    var weightUnit: WeightUnit? {
         guard case .weight(let weightUnit) = self else { return nil }
-        return weightUnit.serverInt
+        return weightUnit
     }
     
     var serverInt: Int16 {

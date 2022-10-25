@@ -1,7 +1,7 @@
 import Foundation
 
-public enum WeightUnit: Int16, CaseIterable, Codable {
-    case g = 1
+public enum WeightUnit: String, CaseIterable, Codable {
+    case g
     case kg
     case oz
     case lb
