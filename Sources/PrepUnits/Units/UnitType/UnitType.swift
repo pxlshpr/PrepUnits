@@ -1,7 +1,7 @@
 import Foundation
 
-public enum UnitType: Int16, CaseIterable {
-    case weight = 1
+public enum UnitType: String, Codable, CaseIterable {
+    case weight
     case volume
     case serving
     case size
